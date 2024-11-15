@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 18:00:05 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/14 15:24:00 by aqrafi           ###   ########.fr       */
+/*   Created: 2024/11/11 18:36:00 by aqrafi            #+#    #+#             */
+/*   Updated: 2024/11/13 12:43:26 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-size_t	ft_strlen(const char *s)
+
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*new_nod;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	new_nod = malloc(sizeof(t_list));
+	if (!new_nod)
+		return (NULL);
+	new_nod->content = content;
+	new_nod->next = NULL;
+	return (new_nod);
 }
-

@@ -6,14 +6,13 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:15:28 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/07 21:19:13 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/10 10:37:05 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	count_word(const char *s, char c)
+static int	count_word(const char *s, char c)
 {
 	int	i;
 	int	cont;
@@ -31,8 +30,8 @@ int	count_word(const char *s, char c)
 	}
 	return (cont);
 }
-	
-void freeall(char **str, int j)
+
+static char	**freeall(char **str, int j)
 {
 	int	i;
 
@@ -43,9 +42,10 @@ void freeall(char **str, int j)
 		i++;
 	}
 	free(str);
+	return (NULL);
 }
 
-char	**alloc_s(const char *s, char c, int cnt)
+static char	**alloc_s(const char *s, char c, int cnt)
 {
 	char	**str;
 	int		len;
@@ -67,20 +67,17 @@ char	**alloc_s(const char *s, char c, int cnt)
 		}
 		str[j] = (char *)malloc(sizeof(char) * (len + 1));
 		if (!str[j])
-		{
-			freeall(str, j);
-			return (NULL);
-		}
+			return (freeall(str, j));
 		j++;
 	}
 	str[cnt] = NULL;
 	return (str);
 }
 
-char	**copy_s(char **str, const char *s, char c, int cnt)
+static char	**copy_s(char **str, const char *s, char c, int cnt)
 {
-	int		j;
-	int		f;
+	int	j;
+	int	f;
 
 	j = 0;
 	while (j < cnt)
@@ -113,10 +110,3 @@ char	**ft_split(char const *s, char c)
 	str = copy_s(str, s, c, cnt);
 	return (str);
 }
-
-// int main()
-// {
-// 	char c = 0;
-// 	ft_split("hello!", c);
-
-// }
