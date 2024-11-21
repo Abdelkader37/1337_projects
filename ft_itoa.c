@@ -6,13 +6,13 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:33:16 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/04 16:11:04 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/16 19:56:17 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*n_cpy(char *str, long len, long nb)
+static char	*n_cpy(char *str, long len, long nb)
 {
 	while (len > 0)
 	{
@@ -23,7 +23,7 @@ char	*n_cpy(char *str, long len, long nb)
 	return (str);
 }
 
-long	n_len(long n)
+static long	n_len(long n)
 {
 	int	len;
 
@@ -36,7 +36,7 @@ long	n_len(long n)
 	return (len);
 }
 
-char	*s_alloc(long len)
+static char	*s_alloc(long len)
 {
 	char	*str1;
 
@@ -46,7 +46,7 @@ char	*s_alloc(long len)
 	return (str1);
 }
 
-char	*handle_zero_case(void)
+static char	*handle_zero_case(void)
 {
 	char	*str;
 

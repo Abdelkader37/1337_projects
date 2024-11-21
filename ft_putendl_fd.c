@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:32:22 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/04 16:18:21 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:40:41 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);

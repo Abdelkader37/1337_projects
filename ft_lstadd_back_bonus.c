@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:32:08 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/14 11:48:22 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/17 13:00:51 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*curent;
 
-	if (*lst == NULL)
+	if (!new || !lst)
+		return ;
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-
 	curent = *lst;
 	while (curent->next)
 		curent = curent->next;

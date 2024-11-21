@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:15:28 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/10 10:37:05 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:12:42 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ char	**ft_split(char const *s, char c)
 	int		cnt;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	j = 0;
 	cnt = count_word(s, c);
 	str = alloc_s(s, c, cnt);

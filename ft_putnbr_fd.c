@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:40:42 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/11/04 16:05:15 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:39:50 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (i < 0)
 	{
 		ft_putchar_fd('-', fd);
-		i = -i;
+		i = -i; 
 	}
 	if (i / 10 == 0)
 		ft_putchar_fd(i + 48, fd);
