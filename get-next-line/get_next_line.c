@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 11:04:40 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/12/01 18:33:08 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/12/03 15:54:54 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ char	*get_all(int fd, char *line)
 		if (index < 0)
 		{
 			free(buffer);
-			free(line);
 			return (NULL);
 		}
 		if (index == 0)
 			break ;
 		buffer[index] = '\0';
 		line = ft_strjoin(line, buffer);
+		if (!line)
+			return (free(buffer),free(line),NULL);
 		if (ft_strchr(line, '\n'))
-			break ;
+			break;
 	}
 	free(buffer);
 	return (line);
@@ -79,7 +80,9 @@ char	*get_remain(char *str)
 		return (NULL);
 	if (remain[0] == '\n' && ft_strlen(remain) == 1)
 		return (NULL);
-	dup_remain = ft_strdup(remain + 1);
+	dup_remain = ft_strdup(remain + 1); 
+	if (!dup_remain)
+		return (NULL);
 	return (dup_remain);
 }
 
@@ -92,11 +95,11 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	st_str = get_all(fd, st_str);
-	if (!st_str)
-		return (NULL);
+	if(!st_str)
+		return(NULL);
 	line = get_lin(st_str);
 	if (!line)
-		return (free(line), line = NULL);
+		return (free(st_str),free(line), line = NULL);
 	buffer = get_remain(st_str);
 	free(st_str);
 	st_str = buffer;

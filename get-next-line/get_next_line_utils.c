@@ -6,7 +6,7 @@
 /*   By: aqrafi <aqrafi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 11:04:35 by aqrafi            #+#    #+#             */
-/*   Updated: 2024/12/01 17:47:00 by aqrafi           ###   ########.fr       */
+/*   Updated: 2024/12/02 22:15:58 by aqrafi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_cpy(void *dst, const void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*d;
@@ -59,9 +59,9 @@ char	*ft_strjoin(char *s1, char const *s2)
 	len = len1 + len2 + 1;
 	str = (char *)malloc(sizeof(char) * len);
 	if (str == NULL)
-		return (NULL);
-	ft_memcpy(str, s1, len1);
-	ft_memcpy(str + len1, s2, len2);
+		return (free(s1), s1 = NULL);
+	ft_cpy(str, s1, len1);
+	ft_cpy(str + len1, s2, len2);
 	str[len1 + len2] = '\0';
 	free(s1);
 	return (str);
@@ -80,7 +80,7 @@ char	*ft_strdup(const char *s1)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	ft_memcpy(str, s1, len);
+	ft_cpy(str, s1, len);
 	str[len] = '\0';
 	return (str);
 }
